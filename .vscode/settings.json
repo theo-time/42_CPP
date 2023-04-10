@@ -45,6 +45,7 @@
         "limits": "cpp",
         "numbers": "cpp",
         "typeinfo": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "fstream": "cpp"
     }
 }
