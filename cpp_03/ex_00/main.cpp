@@ -5,8 +5,11 @@ int main( void ) {
     ClapTrap keynes = ClapTrap("Keynes");
 
     keynes.attack("Friedman");
-    keynes.takeDamage(10);
+    keynes.displayInfos();
+    keynes.takeDamage(5);
+    keynes.displayInfos();
     keynes.beRepaired(10);
+    keynes.displayInfos();
 
     return 0;
 }
