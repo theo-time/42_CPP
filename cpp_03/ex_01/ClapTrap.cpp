@@ -2,7 +2,6 @@
 
 void ClapTrap::init()
 {
-    this->type = "ClapTrap";
     this->hit_points = 10;
     this->energy_points = 10;
     this->attack_damage = 0;
@@ -10,10 +9,11 @@ void ClapTrap::init()
 
 ClapTrap::ClapTrap()
 {
-    this->name = "Anonymous";
+    this->name = "Bob";
+    this->type = "ClapTrap";
     this->init();
     std::cout << GRAY_S;
-    std::cout << this->type << " " << this->name << " is born. " << std::endl;
+    std::cout << "ClapTrap " << this->name << " is born. " << std::endl;
     std::cout << DEFAULT;
     std::cout << std::endl;
 }
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name)
     this->name = name;
     this->init();
     std::cout << GRAY_S;
-    std::cout << this->type << " " << this->name << " is born. " << std::endl;
+    std::cout << "ClapTrap " << this->name << " is born. " << std::endl;
     std::cout << DEFAULT;
     std::cout << std::endl;
 }
@@ -33,7 +33,7 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap)
     this->name = clapTrap.name;
     this->init();
     std::cout << GRAY_S;
-    std::cout << this->type << " " << this->name << " is born. " << std::endl;
+    std::cout << "ClapTrap " << this->name << " is born. " << std::endl;
     std::cout << DEFAULT;
     std::cout << std::endl;
 }
@@ -49,7 +49,7 @@ void ClapTrap::operator=(const ClapTrap &clapTrap)
 ClapTrap::~ClapTrap()
 {
     std::cout << GRAY_S;
-    std::cout << this->type << " "  << this->name << "'s dead body has been swept. " << std::endl;
+    std::cout << "ClapTrap " << this->name << "'s dead body has been swept. " << std::endl;
     std::cout << DEFAULT;
     std::cout << std::endl;
 }
@@ -61,8 +61,7 @@ void ClapTrap::attack(const std::string& target)
     if(canDoAction(" attack"))
     {
         this->energy_points--;
-        std::cout << GRAY_S;
-        std::cout << this->type << " " << BOLD <<  this->name << DEFAULT << " attacks " << target << ", causing ";
+        std::cout << this->type << " " << this->name << DEFAULT << " attacks " << target << ", causing ";
         std::cout << YELLOW << this->attack_damage;
         std::cout << " points of damage!" << std::endl;
         std::cout << DEFAULT;
@@ -73,7 +72,7 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
         this->hit_points -= amount;
-        std::cout << this->type << " " << this->name << " took ";
+        std::cout << "ClapTrap " << this->name << " took ";
         std::cout << RED;
         std::cout << amount << " points of damage!" << std::endl;
         std::cout << DEFAULT;
@@ -85,7 +84,8 @@ void ClapTrap::beRepaired(unsigned int amount)
     if(canDoAction(" be repaired"))
     {
         this->energy_points--;
-        std::cout << this->type << " " << this->name << " repairs itself, and gains ";
+        this->hit_points += amount;
+        std::cout << "ClapTrap " << this->name << " repairs itself, and gains ";
         std::cout << GREEN;
         std::cout << amount << " hit points!" << std::endl;
         std::cout << DEFAULT;
@@ -131,13 +131,13 @@ void ClapTrap::setAttackDamage(int attack_damage)
 /* Display */
 void ClapTrap::notEnoughEnergyMSG(std::string action_name)
 {
-    std::cout << this->type << " has not enough energy for " << action_name << " *"<< std::endl;  
+    std::cout << " * ClapTrap " << " has not enough energy for " << action_name << " *"<< std::endl;  
     std::cout << std::endl;     
 }
 
 void ClapTrap::isDeadMSG(std::string action_name)
 {
-    std::cout << this->type << " is dead, and cannot " << action_name << " *" << std::endl;  
+    std::cout << " * ClapTrap " << " is dead, and cannot " << action_name << " *" << std::endl;  
     std::cout << std::endl;    
 }
 

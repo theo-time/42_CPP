@@ -36,7 +36,7 @@ class Fixed {
     int operator==(const Fixed &fixed);
     int operator!=(const Fixed &fixed);
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+    
     ~Fixed();
 
     int getRawBits( void ) const;
@@ -50,5 +50,7 @@ class Fixed {
     static Fixed max(Fixed &fixed1, Fixed &fixed2);
     static Fixed max(const Fixed &fixed1, const Fixed &fixed2);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

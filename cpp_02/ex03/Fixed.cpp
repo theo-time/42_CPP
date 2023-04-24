@@ -6,18 +6,6 @@ void    print_bits(int n)
     std::cout << bits << std::endl;
 }
 
-// int    reverse_bits(int n)
-// {
-//     std::cout << "bits_before_reverse :" << std::endl;
-//     print_bits(n);
-//     n = (n & 0xF0) >> 4 | (n & 0x0F) << 4;
-//     n = (n & 0xCC) >> 2 | (n & 0x33) << 2;
-//     n = (n & 0xAA) >> 1 | (n & 0x55) << 1;
-//     std::cout << "bits_after_reverse :" << std::endl;
-//     print_bits(n);
-//     return (n);
-// }
-
 Fixed::Fixed()
 {
     _nb = 0;
@@ -51,7 +39,7 @@ Fixed& Fixed::operator=(const Fixed &fixed)
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
-    float float_nb = ((float )(fixed._nb) ) / (1 << fixed._fract_bits);
+    float float_nb = ((float )(fixed.getRawBits()) ) / (1 << 8);
     os << float_nb ;
     return (os);
 }
