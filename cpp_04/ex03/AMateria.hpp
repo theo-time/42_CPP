@@ -10,10 +10,14 @@ class AMateria
         std::string _type;
 
     public:
+        AMateria();
         AMateria(std::string const & type);
+        AMateria(const AMateria &rhs);
+        AMateria& operator=(const AMateria &rhs);
+        virtual ~AMateria();
 
         // Getters and setters
-        std::string const & getType() const;
+        virtual std::string const & getType() const;
 
         // Methods
         virtual AMateria* clone() const = 0;

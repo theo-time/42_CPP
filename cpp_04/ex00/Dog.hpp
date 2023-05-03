@@ -14,7 +14,7 @@ class Dog: public Animal {
     ~Dog();
 
     /* Actions  */
-    void makeSound();
+    virtual void makeSound();
 };
 
 #endif

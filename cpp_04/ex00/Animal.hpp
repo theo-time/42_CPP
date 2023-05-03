@@ -11,7 +11,7 @@
 
 class Animal {
 
-  private:
+  protected:
     std::string  _type;
 
   public:
@@ -23,7 +23,7 @@ class Animal {
     std::string getType() const;
 
     /* Actions  */
-    void makeSound();
+    virtual void makeSound();
 };
 
 #endif

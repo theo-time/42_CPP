@@ -6,13 +6,13 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 20:41:39 by teliet            #+#    #+#              #
-#    Updated: 2023/04/25 13:32:18 by teliet           ###   ########.fr        #
+#    Updated: 2023/05/03 14:56:14 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = test
 
-SRC = main.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp AMateria.cpp
+SRC = main.cpp Bureaucrat.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 

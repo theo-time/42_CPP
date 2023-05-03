@@ -18,14 +18,19 @@ Character& Character::operator=(const Character &rhs)
 {
     _name = rhs._name;
     for(int i = 0; i < 4; i++)
-        _inventory[i] = rhs._inventory[i];
+        _inventory[i] = rhs._inventory[i]->clone();
     return *this;
 }
 
 Character::~Character()
 {
     for(int i = 0; i < 4; i++)
+    {
+        if(_inventory[i])
+            std::cout << "deleting " << _inventory[i]->getType() <<  std::endl;
         delete _inventory[i];
+    }
+
 }
 
 // Methods

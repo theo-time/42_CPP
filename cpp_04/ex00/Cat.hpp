@@ -14,7 +14,7 @@ class Cat: public Animal {
     ~Cat();
 
     /* Actions  */
-    void makeSound();
+    virtual void makeSound();
 };
 
 #endif
