@@ -1,4 +1,4 @@
-#include "BitcoinConverter.hpp"
+#include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv)
 {
@@ -9,13 +9,16 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    // Create BitcoinConverter object
-    BitcoinConverter bc;
+    // Create BitcoinExchange object
+    BitcoinExchange bc;
 
-    // Import rates from file
     try
     {
-        bc.importRates(argv[1]);
+        // Import rates from data.csv
+        bc.importRates();
+
+        // Convert all amounts from <filename>
+        bc.convert(argv[1]);
     }
     catch(const std::exception& e)
     {

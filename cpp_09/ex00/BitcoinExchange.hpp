@@ -1,5 +1,5 @@
-#ifndef BITCOINCONVERTER_HPP
-#define BITCOINCONVERTER_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <fstream>
@@ -13,7 +13,7 @@
 
 #include "Colors.hpp"
 
-class BitcoinConverter
+class BitcoinExchange
 {
 
     private:
@@ -22,23 +22,24 @@ class BitcoinConverter
 
     public:
         /* Coplian */
-        BitcoinConverter();
-        BitcoinConverter(BitcoinConverter const &other);
-        BitcoinConverter &operator=(BitcoinConverter const &other);
-        ~BitcoinConverter();
+        BitcoinExchange();
+        BitcoinExchange(BitcoinExchange const &other);
+        BitcoinExchange &operator=(BitcoinExchange const &other);
+        ~BitcoinExchange();
 
         /* Methods */
-        void    importData();
-        void    importCSV(std::string filename);
-        void    convert(float amount);
-        int     isValidDate(std::string date) const;
+        // void    importData();
+        void            importRates();
+        void            convert(std::string filename);
+        void            convertAmount(std::string date, float amount);
+        int             isValidDate(std::string date) const;
+        void            convertToClosestDate(std::string date, float amount) const;
 
         /* logs */
         void  printRates(void);
         void  importSuccessMsg(void) const;
         void  importErrorMsg(void) const;
         void  convertSuccessMsg(void) const;
-        float convertAmount(std::string date, float amount);
 
         /* Exceptions */
         class OpenFileError: public std::exception
